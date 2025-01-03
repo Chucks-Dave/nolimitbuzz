@@ -63,8 +63,8 @@ const AnimatedIcon = ({ color }) => {
       ) : (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
           <circle
-            fill="#003509"
-            stroke="#003509"
+            fill="#190627"
+            stroke="#190627"
             strokeWidth="2"
             r="15"
             cx="40"
@@ -81,8 +81,8 @@ const AnimatedIcon = ({ color }) => {
             ></animate>
           </circle>
           <circle
-            fill="#003509"
-            stroke="#003509"
+            fill="#190627"
+            stroke="#190627"
             strokeWidth="2"
             r="15"
             cx="100"
@@ -99,8 +99,8 @@ const AnimatedIcon = ({ color }) => {
             ></animate>
           </circle>
           <circle
-            fill="#003509"
-            stroke="#003509"
+            fill="#190627"
+            stroke="#190627"
             strokeWidth="2"
             r="15"
             cx="160"
