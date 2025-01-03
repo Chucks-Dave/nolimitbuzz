@@ -19,22 +19,22 @@ const UserDetails = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const fetchUser = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-      );
-      const result = await response.json();
-      setUser(result);
-    } catch (error) {
-      console.error("Error fetching user details:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/users/${id}`
+        );
+        const result = await response.json();
+        setUser(result);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchUser();
   }, [id]);
 
