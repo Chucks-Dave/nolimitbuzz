@@ -46,23 +46,31 @@ const Home = () => {
     );
   return (
     <div className="px-5 py-5 bg-gradient-to-l from-darkpurple to-darkblack h-screen ">
-      <div className="w-full flex justify-between items-center  border-white border px-8 rounded-md ">
+      <div className="w-full flex justify-between items-center  border-white border px-8 py-2 rounded-md ">
         {" "}
-        <p className="text-white ">id</p>
-        <p className="text-white px-4">name</p>
-        <p className="text-white">Action</p>
+        <p className="text-white font-playfair text-[1rem] font-medium">id</p>
+        <p className="text-white mr-8 font-playfair text-[1rem] font-medium">
+          name
+        </p>
+        <p className="text-white font-playfair text-[1rem] font-medium">
+          Action
+        </p>
       </div>
       {currentItems.map((item, index) => (
         <div
           key={index}
           className="w-full flex justify-between items-center gap-10  px-8 "
         >
-          <p className="text-white">{item.id}</p>
-          <p className="font-roboto text-white ">{item.username}</p>
+          <p className="text-white font-playfair text-[1rem] font-medium">
+            {item.id}
+          </p>
+          <p className=" text-white font-playfair text-[1rem] font-medium">
+            {item.username}
+          </p>
           <span className="pt-5">
             <button
               onClick={() => navigate(`/user/${item.id}`)}
-              className="text-white w-16 py-2 rounded-md bg-transparent border-white border font-playfair text-[10px]"
+              className="text-white lg:w-20 max-md:w-full py-2 px-1 rounded-md font-playfair text-[10px] font-normal bg-transparent border-white border "
             >
               View Details
             </button>

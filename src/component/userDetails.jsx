@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AnimatedIcon from "../icons/AnimatedIcon";
+import { useNavigate } from "react-router-dom";
+import Arrow from "../icons/ArrowIcon";
+import PhoneIcon from "../icons/PhoneIcon";
+import UserIcon from "../icons/UserIcon";
+import MailIcon from "../icons/MailIcon";
+import WebsiteIcon from "../icons/WebsiteIcon";
+import ComapnyIcon from "../icons/ComapnyIcon";
+import PhraseIcon from "../icons/PhraseIcon";
+import CityIcon from "../icons/CityIcon";
+import StreetIcon from "../icons/StreetIcon";
+import ZipIcon from "../icons/ZipIcon";
 
 const UserDetails = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
@@ -38,17 +50,94 @@ const UserDetails = () => {
   if (!user) return <div>No user found</div>;
 
   return (
-    <div className="px-5 py-4 bg-gradient-to-l from-darkpurple to-darkblack h-screen flex justify-center items-center flex-col">
-      <h1 className="text-white text-3xl font-bold">{user.name}</h1>
-      <p className="text-white">Email: {user.email}</p>
-      <p className="text-white">Phone: {user.phone}</p>
-      <p className="text-white">Website: {user.website}</p>
-      <p className="text-white">{user.company.name}</p>
-      <p className="text-white">{user.company.catchPhrase}</p>
-      <p className="text-white">{user.company.bs}</p>
-      <p className="text-white">
-        Address:{`${user.address.city}, ${user.address.city}`},
+    <div className=" py-4 bg-gradient-to-l from-darkpurple to-darkblack h-screen">
+      <button
+        onClick={() => navigate(-1)}
+        className="mt-4 py-2 px-4  text-white font-playfair text-[1rem] font-medium  flex items-center gap-2 "
+      >
+        {" "}
+        <Arrow />
+        Back
+      </button>
+      <p className="text-center text-white font-playfair text-[1.5rem] font-medium ">
+        User Details
       </p>
+      <div className="px-24 relative  flex justify-center items-center">
+        <div className="  flex  flex-col gap-3 py-2 border-white border rounded-md px-8">
+          <div className="flex items-center gap-2">
+            <UserIcon />
+            <h1 className=" text-white font-playfair text-[1rem] font-medium ">
+              {user.name}
+            </h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <UserIcon />
+            <h1 className=" text-white font-playfair text-[1rem] font-medium ">
+              {user.username}
+            </h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <MailIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.email}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <PhoneIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.phone}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <WebsiteIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.website}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <ComapnyIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.company.name}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <PhraseIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.company.catchPhrase}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <PhraseIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.company.bs}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <CityIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.address.city}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <StreetIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.address.street}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <StreetIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.address.suite}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <ZipIcon />
+            <p className="text-white font-playfair text-[1rem] font-medium ">
+              {user.address.zipcode}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
